@@ -66,6 +66,21 @@ public:
 	// Добавление элемента в определенную позицию //ПРАКТИКА
 	void AddPos(int i, char e)
 	{
+		if (i >Count)
+		{
+			Add(e);
+			return;
+		}
+		if (i == 1)
+		{
+			Element* add = new Element;
+			add->data = e;
+			Element* el = Head;
+			Head = add;
+			add->Next = el;
+			Count++;
+			return;
+		}
 		Element* temp = Head;
 		while (i > 2)
 		{
@@ -195,7 +210,7 @@ void main()
 	//Распечатываем содержимое списка
 	//lst.Print();
 	cout << "Is 'l' here? " << lst.SearchElement('l') << endl;
-	lst.AddPos(3, '+');
+	lst.AddPos(1, '+');
 	lst.Print();
 }
 
